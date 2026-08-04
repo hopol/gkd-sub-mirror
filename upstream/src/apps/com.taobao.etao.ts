@@ -1,0 +1,63 @@
+import { defineGkdApp } from '@gkd-kit/define';
+
+export default defineGkdApp({
+  id: 'com.taobao.etao',
+  name: '一淘',
+  groups: [
+    {
+      key: 2,
+      name: '全屏广告-弹窗广告',
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          activityIds: [
+            '.app.home.view.NewHomeActivity',
+            '.app.homev4.HomeV4Activity',
+          ],
+          matches:
+            'LinearLayout[childCount=2] > @RelativeLayout[clickable=true][childCount=1] > ImageView[childCount=0]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/12739581',
+            'https://i.gkd.li/i/13670025',
+          ],
+        },
+        {
+          key: 1,
+          activityIds: '.app.homev4.HomeV4Activity',
+          matches:
+            '[text="一淘-首页红包升级-2312wf"] >5 View[childCount=3] > View[index=0][visibleToUser=true]',
+          exampleUrls:
+            'https://m.gkd.li/57941037/db5c7761-3a8b-4bc6-a61c-65dd30f61b9f',
+          snapshotUrls: 'https://i.gkd.li/i/14622468',
+        },
+      ],
+    },
+    {
+      key: 10,
+      name: '权限提示-通知权限',
+      desc: '点击x掉',
+      actionMaximum: 3,
+      resetMatch: 'app',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: [
+            'com.taobao.sns.app.message.MessageActivity',
+            '.mine.MetaXMineActivity',
+            '.app.homev4.HomeV4Activity',
+          ],
+          matches:
+            '@[text=null][clickable=true][width<150][childCount=0] -(1,2) [text*="开"][text*="通知"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/12684278', // 旧快照,无快查属性
+            'https://i.gkd.li/i/12684351', // 旧快照
+            'https://i.gkd.li/i/30634250',
+          ],
+        },
+      ],
+    },
+  ],
+});
