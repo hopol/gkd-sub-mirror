@@ -49,7 +49,7 @@ git archive 导出 → upstream/
 提交 & 推送 & 创建标签
 ```
 
-### 发布镜像（每小时检查）
+### 发布镜像（每5天检查）
 
 ```
 检查上游最新 Release
@@ -78,7 +78,7 @@ gkd-sub-mirror/
 ├── .github/
 │   └── workflows/
 │       ├── sync.yml           # 源码同步工作流（每5天）
-│       └── release.yml        # 发布镜像工作流（每小时检查）
+│       └── release.yml        # 发布镜像工作流（每5天检查）
 ├── upstream/                  # 上游源码（运行时生成）
 ├── sync.sh                    # 本地同步脚本
 ├── README.md                  # 本文档
