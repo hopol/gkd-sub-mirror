@@ -65,6 +65,16 @@ export default defineGkdApp({
             '@ImageView[desc="Close Button"] <2 View < View < View < View < ComposeView < [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/28907537',
         },
+        {
+          key: 2,
+          activityIds: '.pages.main.MainFragmentActivity',
+          matches:
+            '@ImageView[clickable=true][visibleToUser=true] + ViewGroup[vid="root_view"] >n [text$="领取"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/31327606',
+            'https://i.gkd.li/i/31410963',
+          ],
+        },
       ],
     },
     {
@@ -180,7 +190,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            '@[(name$="ImageView" || getChild(0).name$="ImageView") && desc!="back_unfold"][clickable=true][visibleToUser=true][width<102 && height<102] <n [childCount>1] >(2,3) [text*="查看" || text$="优惠" || text^="立即" || text^="马上" || text*="参与" || text*="免费" || (text*="领" && text*="券") || (text*="返" && text*="金币")][text.length<10]',
+            '@[(name$="ImageView" || getChild(0).name$="ImageView") && desc!="back_unfold"][clickable=true][visibleToUser=true][width<102 && height<102] <n [childCount>1] >(2,3) [text*="查看" || text$="优惠" || text^="立即" || text^="马上" || text*="参与" || text*="参加" || text*="免费" || (text*="领" && text*="券") || (text*="返" && text*="金币")][text.length<10]',
           snapshotUrls: [
             'https://i.gkd.li/i/12908734', // 查看详情
             'https://i.gkd.li/i/18138903', // 立享优惠
@@ -192,6 +202,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24706223', // 免费观看
             'https://i.gkd.li/i/14548657', // 返1098金币
             'https://i.gkd.li/i/14810480', // 返780金币
+            'https://i.gkd.li/i/31328323', // 我要参加
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/28821485', // 用 [name$="ImageView" || getChild(0).name$="ImageView"][visibleToUser=false] 排除
