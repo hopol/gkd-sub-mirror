@@ -246,12 +246,15 @@ export default defineGkdApp({
             left: 'width * 0.77',
             top: 'height * 0.64',
           },
-          matches:
+          anyMatches: [
             '@ViewGroup[visibleToUser=true][height<150][width=prev.width] < [childCount=2] <(2,3) FrameLayout[childCount<4] >7 [vid="ttlive_player_render_view"]',
+            '@ViewGroup[visibleToUser=true][height<150][width=prev.width] -2 [index=0] < FrameLayout[childCount<5] >7 [vid="ttlive_player_render_view"]', //②
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/27706770',
             'https://i.gkd.li/i/28834344',
             'https://i.gkd.li/i/32435385',
+            'https://i.gkd.li/i/34807130', //②
           ],
           exampleUrls: 'https://e.gkd.li/aef38288-d84b-4e13-8161-ebebc27b822b',
         },
@@ -482,13 +485,17 @@ export default defineGkdApp({
           key: 1,
           name: '①点击[静音]',
           matches:
-            '@ImageView[visibleToUser=true][width>20 && width<93 && height>20 && height<108][right<prev.width.div(3)][bottom<prev.height.div(10)] <<n [id="android:id/content"]',
+            '@ImageView[visibleToUser=true][width>20 && width<93 && height>20 && height<130][right<prev.width.div(3)][bottom<prev.height.div(10)] <<n [id="android:id/content"]',
           /*
            ** 从选择器右侧 [id="android:id/content"] 节点获取屏幕宽高, 限制目标节点位于屏幕左上角
            ** [right<prev.width.div(3)] 表示目标节点的 right 要小于屏幕宽度的 1/3
            ** [bottom<prev.height.div(10)] 表示目标节点的 bottom 要小于屏幕高度的 1/10
            */
-          snapshotUrls: 'https://i.gkd.li/i/28907595',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28907595',
+            'https://i.gkd.li/i/34841008',
+            'https://i.gkd.li/i/34840554',
+          ],
         },
         {
           key: 2,
@@ -500,7 +507,7 @@ export default defineGkdApp({
           matches:
             '@ImageView[width>20 && width<93 && height<0][right<prev.width.div(3)][bottom<prev.height.div(10)] <<n [id="android:id/content"]',
           exampleUrls: 'https://e.gkd.li/d8949efa-e2f7-49d2-a8d7-4837ed349aef',
-          snapshotUrls: 'https://i.gkd.li/i/26528931', // [height<0]
+          snapshotUrls: 'https://i.gkd.li/i/34847712', // [height<0]
         },
       ],
     },
